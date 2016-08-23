@@ -1,0 +1,30 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-top tabs-color-active-positive">
+
+  <!-- Dashboard Tab -->
+  <ion-tab title="Search" icon-off="ion-ios-search" icon-on="ion-ios-search-strong" href="#/tab/search">
+    <ion-nav-view name="tab-search"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Chats Tab -->
+  <ion-tab title="Notebooks" badge-style="badge-assertive" badge="statusUpdateCount" icon-off="ion-ios-bookmarks-outline" icon-on="ion-ios-bookmarks" href="#/tab/notebooks">
+    <ion-nav-view name="tab-notebooks"></ion-nav-view>
+  </ion-tab>
+
+  <!-- Account Tab -->
+  <ion-tab title="Settings" icon-off="ion-ios-gear-outline" icon-on="ion-ios-gear" href="#/tab/settings">
+    <ion-nav-view name="tab-settings"></ion-nav-view>
+  </ion-tab>
+
+
+</ion-tabs>
+
+<ion-nav-view name="trademark-detail"></ion-nav-view>
+
+<ion-list>
+  <ion-checkbox ng-model="notebooks[$index].selected" ng-repeat="notebook in notebooks track by $index" >{{notebook.name}}</ion-checkbox>
+</ion-list>

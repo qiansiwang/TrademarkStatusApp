@@ -1,0 +1,29 @@
+<ion-view view-title="Preferred Status Codes">
+    <ion-nav-title>
+        Preferred Status Codes
+    </ion-nav-title>
+    <ion-nav-buttons side="right" >
+      <a class="button button-clear button-positive" ng-click="savePreferredStatusCodes()">Save</a>
+    </ion-nav-buttons>
+
+    <ion-content class="has-header">
+
+        <ion-list >
+            <ion-item class="item item-divider item-icon-left " style="padding-top: 15px; padding-bottom: 15px;" >
+                <label class="checkbox icon" >
+                    <input id="checkbox-all" type="checkbox" ng-model="selectAll.value" ng-change="toggleSelectAll()"  >
+                </label>
+                <label><b>Select status codes for alerts</b></label>
+            </ion-item>
+            <ion-item class="item item-icon-left item-icon-right item-text-wrap" ng-repeat="preferredStatusGroup in preferredStatusGroups  track by $index" >
+                <label class="checkbox icon" >
+                    <input id="checkbox-{{preferredStatusGroup.id}}" type="checkbox" ng-model="preferredStatusGroup.selected" ng-checked="{{preferredStatusGroup.selected}}" >
+                </label>
+                <label for="checkbox-{{preferredStatusGroup.id}}" >{{preferredStatusGroup.label}}</label>
+                <i class="icon ion-chevron-right icon-accessory" ng-click="showStatusCodes(preferredStatusGroup.id)"></i>
+            </ion-item>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>

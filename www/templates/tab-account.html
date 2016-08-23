@@ -1,0 +1,16 @@
+<ion-view view-title="Settings">
+  <ion-content>
+      <multiselect
+        header-text="Header"
+        items="data"
+        text-property="value"
+        value-property="id"
+        is-translate="false"
+        text=""
+        modal-template-url="lib/ionic-multiselect/dist/templates/modal-template.html"
+        template-url="lib/ionic-multiselect/dist/templates/item-template.html"
+        note-text="Status Codes"
+        value-changed="onValueChanged(value)">
+      </multiselect>
+  </ion-content>
+</ion-view>

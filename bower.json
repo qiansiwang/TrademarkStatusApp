@@ -1,0 +1,11 @@
+{
+  "name": "HelloIonic",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.2.4",
+    "ionic-multiselect": "^0.0.7"
+  },
+  "dependencies": {
+    "ionic-multiselect": "^0.0.7"
+  }
+}

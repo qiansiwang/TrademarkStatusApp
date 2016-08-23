@@ -1,0 +1,108 @@
+<ion-view >
+    <ion-nav-title>
+        Trademark Detail
+    </ion-nav-title>
+
+    <ion-content class="has-header">
+        <ion-slides options="swiperOptions" slider="data.slider">
+            <ion-slide-page ng-repeat="trademarkInfo in trademarks" >
+
+                <div class="row" >
+                    <div class="col" style="text-align: center;" >
+                        <i ng-show="trademarkInfo.bookmarked" class="icon ion-bookmark" style="position:absolute; top: 10px; right: 10px; font-size: 35px;" ></i>
+                        <img ng-src="http://tsdr.uspto.gov/img/{{trademarkInfo.serialNumber}}/large"  >
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col" style="text-align: center; font-weight: bold;">
+                        <p style="margin-bottom: 0px;" >{{trademarkInfo.title}}</p>
+                        <a href="{{trademarkInfo.tsdrWebUrl}}">
+                            <i class="ion-link"></i>
+                            Web-Link
+                        </a>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col col-33 control-label" >
+                        <p>Serial Number</p>
+                    </div>
+                    <div class="col col-67" >
+                        <p>{{trademarkInfo.serialNumber}}</p>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col col-33 control-label" >
+                        <p>Filing Date</p>
+                    </div>
+                    <div class="col col-67" >
+                        <p>{{trademarkInfo.filingDateStr}}</p>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col col-33 control-label" >
+                        <p>Registration Date</p>
+                    </div>
+                    <div class="col col-67" >
+                        <p>{{trademarkInfo.registrationDateStr}}</p>
+                    </div>
+                </div>
+
+                <div class="row" >
+                    <div class="col col-33 control-label" >
+                        <p>Status</p>
+                    </div>
+                    <div class="col col-67" >
+                        <p>{{trademarkInfo.statusLongDescription}}</p>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col col-33 control-label" >
+                        <p>Status Date</p>
+                    </div>
+                    <div class="col col-67" >
+                        <p>{{trademarkInfo.statusDateStr}}</p>
+                    </div>
+                </div>
+                <div ng-if="trademarkInfo.previousStatus != null" class="row" >
+                    <div class="col col-33 control-label" >
+                        <p>Previous Status</p>
+                    </div>
+                    <div class="col col-67" >
+                        <p>{{trademarkInfo.previousStatusLongDescription}}</p>
+                    </div>
+                </div>
+                <div ng-if="trademarkInfo.previousStatus != null" class="row" >
+                    <div class="col col-33 control-label" >
+                        <p>Previous Status Date</p>
+                    </div>
+                    <div class="col col-67" >
+                        <p>{{trademarkInfo.previousStatusDateStr}}</p>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col col-80 col-offset-10" >
+                        <button class="button button-block button-balanced icon-left ion-share" ng-click="share(trademarkInfo)"   >
+                            Share
+                        </button>
+                        <button ng-if="source == 'Alerts'" class="button button-block button-assertive icon-left ios-minus-circled" ng-click="dismissItem(trademarkInfo)" >
+                            Dismiss Alert
+                        </button>
+                        <button ng-if='$parent.source == "Search" && !trademarkInfo.bookmarked' class="button button-block button-positive icon-left ion-bookmark" ng-click="showNotebooksList(trademarkInfo)" >
+                            Add to Notebooks
+                        </button>
+                        <button ng-if="$parent.source == 'Bookmarks'" class="button button-block button-assertive icon-left ion-trash-a" ng-click="deleteBookmark(trademarkInfo)" >
+                            Delete Bookmark
+                        </button>
+                    </div>
+                </div>
+
+                <div  style="height: 20px;" >
+                    &nbsp;
+                </div>
+
+            </ion-slide-page>
+        </ion-slides>
+
+
+    </ion-content>
+</ion-view>

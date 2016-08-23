@@ -1,0 +1,74 @@
+histoion-view view-title="Trademark Search">
+<!--
+      <ion-nav-buttons side="right">
+        <a class="button button-icon icon ion-share share-event" ng-click="shareEvent()" ng-show="enableShare"></a>
+      </ion-nav-buttons>
+-->
+      <ion-nav-title>
+        <span>Trademark Search </span>
+        <span style="color: gray; font-style: italic; font-family: serif; " >(Alpha)</span>
+      </ion-nav-title>
+      <ion-content class="has-header" >
+          <div style="height: 100%" >
+
+    <form ng-submit="search()" >
+      <div class="padding list">
+          <div class="item item-input-inset" style="padding: 0px; border-width: 0px;" >
+              <label class="item-input-wrapper">
+                  <i class="icon ion-search placeholder-icon" ></i>
+                  <input type="text" placeholder="US Serial, Registration or Ref No." ng-model="searchForm.searchString" size="100" >
+              </label>
+              <a class="icon ion-close-round placeholder-icon" ng-click="clearSearch()" ></a>
+
+          </div>
+        <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+      </div>
+      <ion-list  ng-if="searchResults.length > 0" can-swipe="true">
+        <ion-item ng-repeat="trademarkInfo in searchResults" ng-class="{'item-thumbnail-left': true, 'item-icon-right': trademarkInfo.bookmarked}"  ng-click="showDetail($index, $event)" >
+          <img ng-src="http://tsdr.uspto.gov/img/{{trademarkInfo.serialNumber}}/large" style="width: 90px; max-width: 90px; height: auto;" >
+          <h3> {{trademarkInfo.title}} </h3>
+          <p>{{trademarkInfo.getSearchText()}}</p>
+          <p>Status: {{trademarkInfo.statusDescription}}</p>
+          <p>Status Date: {{trademarkInfo.statusDateStr}}</p>
+          <p>
+             <a href="{{trademarkInfo.tsdrWebUrl}}">
+              <i class="ion-link"></i>
+              Web-Link
+            </a>
+           </p>
+          <i ng-show="trademarkInfo.bookmarked" class="icon ion-bookmark" ></i>
+          <ion-option-button class="button-balanced" ng-click="shareEvent(trademarkInfo)" >
+            <i class="trademark-option-icon icon ion-share " ></i>
+          </ion-option-button>
+          <ion-option-button class="button-positive" ng-show="!trademarkInfo.bookmarked" ng-click="showNotebooksList(trademarkInfo)" >
+            <i class="trademark-option-icon icon ion-bookmark" ></i>
+          </ion-option-button>
+
+        </ion-item>
+    </ion-list>
+    <div ng-if="searchResults.length > 0" class="swipe-message" >
+        Swipe on an item in the list to see more options.
+    </div>
+    <div class="card" ng-if="searchStatus == 404" >
+        <div class="item item-text-wrap">
+            No results found. Please enter appropriate search criteria. See the <a href='#/tab/settings/help' >Help</a>  section for more info.
+        </div>
+    </div>
+    <div class="card" ng-if="searchStatus == 400" >
+        <div class="item item-text-wrap">
+            Unable to parse your search query. Please See the <a href='#/tab/settings/help' >Help</a>  section for search format.
+        </div>
+    </div>
+    <div class="card" ng-if="searchStatus == 503" >
+        <div class="item item-text-wrap">
+            Service is temporarily down. Please try again later.
+        </div>
+    </div>
+    <div class="card" ng-if="searchStatus == 500" >
+        <div class="item item-text-wrap">
+            Server Error. Please try again later.
+        </div>
+    </div>
+    </form>
+  </ion-content>
+</ion-view>

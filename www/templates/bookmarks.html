@@ -1,0 +1,29 @@
+<ion-view view-title="Bookmarks" >
+  <ion-nav-title>
+    Bookmarks
+  </ion-nav-title>
+  <ion-content class="has-header">
+    <ion-list class="list" can-swipe="true">
+      <ion-item ng-repeat="bookmark in bookmarks" class="item item-thumbnail-left" ng-click="showDetail($index, $event)">
+        <img ng-src="http://tsdr.uspto.gov/img/{{bookmark.trademarkInfo.serialNumber}}/large" style="width: 90px; max-width: 90px; height: auto;" >
+        <h3> {{bookmark.trademarkInfo.title}} </h3>
+        <p>Serial No.: {{bookmark.trademarkInfo.serialNumber}}</p>
+        <p>Status: {{bookmark.trademarkInfo.statusDescription}}</p>
+        <p>Status Date: {{bookmark.trademarkInfo.statusDateStr}}</p>
+        <p>
+          <a href="{{bookmark.trademarkInfo.tsdrWebUrl}}">
+            <i class="ion-link"></i>
+            Web-Link
+          </a>
+        </p>
+        <i ng-show="trademarkInfo.bookmarked" class="icon ion-bookmark" ></i>
+        <ion-option-button class="button-balanced" ng-click="shareEvent(bookmark)" >
+          <i class="trademark-option-icon icon ion-share " ></i>
+        </ion-option-button>
+        <ion-option-button class="button-assertive" ng-click="deleteBookmarksForNotebook($index,bookmark)" >
+          <i class="trademark-option-icon icon ion-trash-a" ></i>
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

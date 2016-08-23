@@ -1,0 +1,33 @@
+<ion-view view-title="Alerts"  >
+    <ion-nav-title>
+        Alerts
+    </ion-nav-title>
+    <ion-content class="has-header">
+        <ion-list class="list" can-swipe="true">
+            <ion-item ng-repeat="bookmark in bookmarks" class="item item-thumbnail-left" ng-click="showDetail($index, $event)" >
+                <img ng-src="http://tsdr.uspto.gov/img/{{bookmark.trademarkInfo.serialNumber}}/large" style="width: 90px; max-width: 90px; height: auto;">
+                <h3> {{bookmark.trademarkInfo.title}} </h3>
+                <p>Serial No.: {{bookmark.trademarkInfo.serialNumber}}</p>
+                <p>Status: {{bookmark.trademarkInfo.statusDescription}}</p>
+                <p>Status Date: {{bookmark.trademarkInfo.statusDateStr}}</p>
+                <p>Previous Status: {{bookmark.trademarkInfo.previousStatusDescription}}</p>
+                <p>Previous Status Date: {{bookmark.trademarkInfo.previousStatusDateStr}}</p>
+                <p>
+                    <a href="{{bookmark.trademarkInfo.tsdrWebUrl}}">
+                        <i class="ion-link"></i>
+                        Web-Link
+                    </a>
+                </p>
+                <ion-option-button class="button-balanced" ng-click="shareEvent(bookmark)" >
+                    <i class="trademark-option-icon icon ion-share " ></i>
+                </ion-option-button>
+                <ion-option-button class="button-assertive" ng-click="dismissItem($index)" >
+                    <i class="trademark-option-icon icon ion-minus-circled" ></i>
+                </ion-option-button>
+            </ion-item>
+        </ion-list>
+        <div class="swipe-message" >
+            Swipe to share or discard the alert.
+        </div>
+    </ion-content>
+</ion-view>

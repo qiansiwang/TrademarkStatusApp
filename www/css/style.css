@@ -1,0 +1,80 @@
+.field-info-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.field-info-icon {
+  position: absolute;
+  color: #87C6FD;
+  font-size: 25px;
+  z-index: 4;
+  padding: 10px;
+  top: -5px;
+  right: 8px;
+}
+
+.field-info-wrapper.field-info-checkbox .field-info-icon {
+  top: 5px;
+}
+
+.field-info-wrapper .item-toggle .toggle {
+  right: 55px;
+}
+
+.field-info-wrapper .item-toggle, .item-toggle.item-complex .item-content {
+  padding-right: 115px;
+}
+
+.input-label {
+  font-size: 15px;
+  color: #BBB;
+  font-weight: 500;
+}
+
+label.item {
+  border-left: 10px solid $light;
+  border-right: 4px solid $light;
+  padding: 0 16px 0 10px;
+}
+
+.item.item-toggle {
+  padding-left: 20px;
+  border-style: none;
+  margin-top: -12px;
+  margin-bottom: 2px;
+  font-size: 15px;
+  color: #BBB;
+  font-weight: 500;
+}
+
+
+.swipe-message{
+  bottom: 5px;
+  color: gray;
+  font-size: 80%;
+  width: 100%;
+  text-align: center;
+}
+
+.form-static{
+
+}
+
+.control-label{
+  font-weight: bold;
+  text-align: right;
+}
+
+.form-control-static{
+
+}
+
+.swiper-wrapper{
+  position: relative;
+}
+
+.button .trademark-option-icon:before{
+  font-size: 36px !important;
+  padding: 10px;
+}
