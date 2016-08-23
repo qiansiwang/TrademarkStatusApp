@@ -14,11 +14,15 @@ $ npm install -g cordova ionic
 * Add the desired platform
 ```
 $ ionic platform add ios
-$ ionic build ios
 $ ionic platform add android
 $ ionic build android
 ```
-* Run the app
+* Build and run the app
 ```
+(Note - To build and run on an iOS device Xcode is required. To build and run on an Android device Android SDK is required.)
+$ ionic build ios
 $ ionic emulate ios
+$ ionic build android
+$ ionic emulate android
 ```
+
