@@ -1,0 +1,168 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylesheets/sb-admin-2.css">
+    <link rel="stylesheet" href="stylesheets/timeline.css">
+    <link rel="stylesheet" href="stylesheets/angular-chart.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
+</head>
+<body ng-app="usageStatistics">
+
+
+
+<div class="wrapper container">
+    <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">TSDR Mobile Usage Statistics - Changed at 4 pm</a>
+        </div>
+        <!-- /.navbar-static-side -->
+    </nav>
+    <div class="page-wrapper container" ng-cloak style="padding-top: 30px;" >
+        <div ng-controller="usageStatisticsController" style="" >
+
+		
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-search fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{topLevel.searches}}</div>
+                                    <div>Searches</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-mobile fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{topLevel.devices}}</div>
+                                    <div>Devices</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-bookmark fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{topLevel.bookmarks}}</div>
+                                    <div>Bookmarks</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-exclamation-triangle fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{topLevel.notifications}}</div>
+                                    <div>Status Alerts</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts -->
+            <div class="row" >
+                <div class="col-lg-6" >
+                    <div class="panel panel-default" >
+                        <div class="panel-heading" >
+                            <i class="fa fa-line-chart fa-fw" ></i>
+                            Sessions
+                            <div class="pull-right">
+                                <select ng-model="deviceSessionData.month" ng-change="refreshDeviceSessionData()" ng-options="months.indexOf(i)+'' as i for i in months" >
+                                </select>
+                                <select disabled >
+                                    <option>2016</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <canvas id="line" class="chart chart-line" chart-data="deviceSessionData.data"
+                                    chart-labels="deviceSessionData.labels" chart-legend="true" chart-series="deviceSessionData.series"
+                                    chart-click="onClick" >
+                            </canvas>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <div class="col-lg-6" >
+                    <div class="panel panel-default" >
+                        <div class="panel-heading" >
+                            <i class="fa fa-bar-chart-o fa-fw" ></i>
+                            Alerts and Bookmarks
+                        </div>
+                        <div class="panel-body">
+                            <canvas id="alerts" class="chart chart-line" chart-data="bookmarksAltersData.data"
+                                    chart-labels="bookmarksAltersData.labels" chart-legend="true" chart-series="bookmarksAltersData.series"
+                                    chart-click="onClick" >
+                            </canvas>
+
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+    </div>
+
+</div>
+
+
+<script   src="https://code.jquery.com/jquery-2.2.2.min.js"   ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+<script src="lib/sb-admin-2.js"></script>
+<script src="lib/Chart.min.js" > </script>
+<script src="lib/angular-chart.min.js" > </script>
+<script src="javascripts/usageStatisticsController.js" > </script>
+
+
+</body>
+</html>

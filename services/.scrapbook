@@ -1,0 +1,12 @@
+http://localhost:3001/tsdrService/devices
+
+{
+  "app_id": "12345",
+  "push_id": "abcde",
+  "push_enabled": 0,
+  "device_type": "apple",
+  "device_os": "ios9.2"
+}
+
+> sudo initctl stop tsdr-service
+> sudo initctl start tsdr-service

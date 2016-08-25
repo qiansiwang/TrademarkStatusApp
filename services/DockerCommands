@@ -1,0 +1,10 @@
+docker build -t sashiaeec/tsdr-service .
+
+docker run -d -v /Users/greensod/usptoWork/edh2/code/openDataGit/tsdr/tsdrService:/src -p 3001:3001 --name tsdr-service sashiaeec/tsdr-service
+
+docker run -d -p 3001:3001 --name tsdr-service local/tsdr-service
+
+docker build -t sashiaeec/tsdr-service-debug -f Dockerfile-debug
+
+docker run -d -v /Users/greensod/usptoWork/edh2/code/openDataGit/tsdr/tsdrService:/src -p 3001:3001 -p 8080:8080 -p 5858:5858 --name tsdr-service-debug sashiaeec/tsdr-service-debug node-debug --web-host 0.0.0.0 ./bin/www
+

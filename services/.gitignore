@@ -1,0 +1,10 @@
+*.iml
+*.class
+.idea
+**/data/output/
+**/target/
+**/.metadata/
+**/.settings/
+**/data/
+**/bin/
+**/node_modules/
