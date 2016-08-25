@@ -1,5 +1,7 @@
-Trademark Status App
+Trademark Status Mobile App
 =====================
+
+The mobile app is built using Ionic framework and depends on [TSDR services](./../services).
 
 ## Installation
 
