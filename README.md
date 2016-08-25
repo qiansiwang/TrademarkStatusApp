@@ -1,30 +1,30 @@
 Trademark Status App
 =====================
 
-A mobile application (IOS, Android compatible) that alerts users of trademark status changes. 
+A mobile application (IOS, Android compatible) where users can - 
+* Search for trademarks 
+* Bookmark interesting trademarks and group them into Notebooks
+* Receive notifications on status changes to bookmarks
+* Indicate preference for specific trademark statuses 
+* Share bookmarks with other users
 
-## Installation
+## Components
+![HLA](https://s3.amazonaws.com/aeec-public/TSDRMobile-HLA.png)
 
-* Clone this Git repo
-* Install Node.js
-* Install Cordova and Ionic
-```
-$ npm install -g cordova ionic
-```
-* Add the desired platform
-```
-$ ionic platform add ios
-$ ionic platform add android
-```
-* Build and run the app
-```
-(Note - To build and run on an iOS device Xcode is required. To build and run on an Android device Android SDK is required.)
-$ ionic build ios
-$ ionic emulate ios
-$ ionic build android
-$ ionic emulate android
-```
+**USPTO TSDR APIs** - These are existing APIs developed by USPTO that provide APIs for searching Trademarks by serial number, registration number and reference number.
 
-## Running pre-built releases
-* Download [Android APK](.releases/android-release-unsigned.apk) and follow [http://www.greenbot.com/article/2452614/how-to-sideload-an-app-onto-your-android-phone-or-tablet.html](http://www.greenbot.com/article/2452614/how-to-sideload-an-app-onto-your-android-phone-or-tablet.html)
-* Download [iOS IPA](.releases/TSDRMobile.ipa) and follow [http://stackoverflow.com/a/26904969](http://stackoverflow.com/a/26904969)
+**TSDR Services** – Implements the RESTful services consumed by TSDR Mobile app. Proxies the incoming search request to the TSDR API. Uses MySQL RDS database to store data. Runs a batch job every 5 minutes to check the status of bookmarked applications. If a status change is detected, messages are published to corresponding devices using AWS SNS Service.
+
+**TSDR Mobile App** - The mobile app is built on Ionic, Cordova and uses HTML5, CSS and Javascript. It communicates with TSDR Service for storing and retrieving data. It uses the following plugins to perform native operations – 
+* Phonegap Push Plugin
+* Cordova Social Sharing Plugin
+* Ionic Keyboard Plugin
+
+**MySQL RDS** – Houses the data used by TSDR App. The data elements are – 
+* Devices
+* Bookmarks
+* Notebooks
+* PreferredStatusCodes
+
+**AWS SNS** – Is used for sending out push notifications to users when status change is detected. Platform Applications are initially created for iOS and Android Platforms. When individual users install the app, platform endpoints are created in SNS using platform and device specific tokens. AWS SNS Nodejs SDK is used to publish messages.
+
