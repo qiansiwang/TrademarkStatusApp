@@ -104,13 +104,3 @@ CREATE TABLE DEVICE_EVENTS(
   event_date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id)
 )ENGINE=INNODB;
-
-load data local infile 'status_codes.csv' into table STATUS_CODES_TEST fields terminated by ','
-enclosed by '"'
-lines terminated by '\n'
-(code, description, long_desc, status_group_id);
-
-load data local infile 'status_groups.csv' into table STATUS_GROUPS_TEST fields terminated by ','
-enclosed by '"'
-lines terminated by '\n'
-(id, label, long_desc, code);

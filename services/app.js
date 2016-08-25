@@ -10,6 +10,9 @@ var dbAdapter = require("./db/dbAdapter");
 var util = require("./util");
 var AWS = require('aws-sdk');
 var Q = require("q");
+var credentials = new AWS.SharedIniFileCredentials({profile: 'tsdr-services-profile'});
+AWS.config.credentials = credentials;
+AWS.config.update({region: 'us-east-1'});
 
 
 //var routes = require('./routes/index');

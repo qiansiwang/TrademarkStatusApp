@@ -4,8 +4,7 @@ var Q = require("q");
 var util = require("../util");
 
 var pool  = mysql.createPool(
-    //getDbInfo()
-    getDockerDbInfo()
+    getDbInfo()
 );
 
 function getDbInfo(){
@@ -13,24 +12,6 @@ function getDbInfo(){
         host     : '127.0.0.1',
         user     : 'root',
         password : '',
-        database : "tsdr_mobile"
-    }
-}
-
-function getDockerDbInfo(){
-    return{
-        host     : 'tsdr-db',
-        user     : 'root',
-        password : 'AEEC2016',
-        database : "tsdr_mobile"
-    }
-}
-
-function getProdDbInfo(){
-    return {
-        host     : 'edh2.chimup87vxa8.us-east-1.rds.amazonaws.com',
-        user     : 'edhadmin',
-        password : 'AEEC2015',
         database : "tsdr_mobile"
     }
 }
@@ -507,6 +488,7 @@ exports.insertStatusCodes = function(statusCodes){
             }
             Q.all(promiseList).then(function(){
                 connection.release();
+                process.exit();
             });
         });
     });
