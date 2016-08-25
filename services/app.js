@@ -10,7 +10,6 @@ var dbAdapter = require("./db/dbAdapter");
 var util = require("./util");
 var AWS = require('aws-sdk');
 var Q = require("q");
-AWS.config.update({accessKeyId: 'AKIAIWISKKYMP4XY22FQ', secretAccessKey: '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', "region": "us-east-1" });
 
 
 //var routes = require('./routes/index');
