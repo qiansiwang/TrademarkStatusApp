@@ -6,7 +6,8 @@ A mobile application (IOS, Android compatible) where users can -
 * Bookmark interesting trademarks and group them into Notebooks
 * Receive notifications on status changes to bookmarks
 * Indicate preference for specific trademark statuses 
-* Share bookmarks with other users
+* Share bo
+* 
 
 ## Components
 ![HLA](https://s3.amazonaws.com/aeec-public/TSDRMobile-HLA.png)
@@ -30,4 +31,6 @@ See [Installation Details](./app)
 * PreferredStatusCodes
 
 **AWS SNS** – Is used for sending out push notifications to users when status change is detected. Platform Applications are initially created for iOS and Android Platforms. When individual users install the app, platform endpoints are created in SNS using platform and device specific tokens. AWS SNS Nodejs SDK is used to publish messages.
+
+The United States Department of Commerce (DOC) GitHub project code is provided on an ‘as is’ basis and the user assumes responsibility for its use. DOC has relinquished control of the information and no longer has responsibility to protect the integrity, confidentiality, or availability of the information. Any claims against the Department of Commerce stemming from the use of its GitHub project will be governed by all applicable Federal law. Any reference to specific commercial products, processes, or services by service mark, trademark, manufacturer, or otherwise, does not constitute or imply their endorsement, recommendation or favoring by the Department of Commerce. The Department of Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used in any manner to imply endorsement of any commercial product or activity by DOC or the United States Government.
 
