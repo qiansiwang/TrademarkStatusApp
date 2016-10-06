@@ -32,6 +32,7 @@
     <script src="js/controllers/StatusUpdatesController.js"></script>
     <script src="js/controllers/StatusCodesController.js"></script>
     <script src="js/controllers/TrademarkDetailController.js"></script>
+    <script src="js/controllers/HelpController.js"></script>
     <script src="js/services.js"></script>
     <script src="js/services/AppInitService.js"></script>
     <script src="js/services/TrademarkService.js"></script>
@@ -45,7 +46,7 @@
                 e = e ||  window.event;
                 var element = e.target || e.srcElement;
 
-                if (element.tagName == 'A') {
+                if (element.tagName == 'A' && element.href.startsWith("http") ) {
                     window.open(element.href, "_system", "location=yes");
                     return false; // prevent default action and stop event propagation
                 }

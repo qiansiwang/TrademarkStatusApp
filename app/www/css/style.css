@@ -78,3 +78,7 @@ label.item {
   font-size: 36px !important;
   padding: 10px;
 }
+
+.swiper-container {
+  overflow: scroll;
+}

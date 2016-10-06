@@ -172,7 +172,7 @@ angular.module('main', ['ionic', 'ngCordova', 'starter.controllers', 'starter.se
                 views:{
                     'tab-settings':{
                         templateUrl: 'templates/help.html',
-                        controller: 'PreferredStatusCodesController'
+                        controller: 'HelpController'
                     }
                 }
             })
