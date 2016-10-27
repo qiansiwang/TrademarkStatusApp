@@ -9,7 +9,7 @@ A mobile application (IOS, Android compatible) where users can -
 * Share bookmarks
 
 ## Components
-![HLA](https://s3.amazonaws.com/aeec-public/TSDRMobile-HLA.png)
+![HLA](https://s3.amazonaws.com/aeec-public/TSDR+Mobile+Architecture.jpeg)
 
 **USPTO TSDR APIs** - These are existing APIs developed by USPTO that provide APIs for searching Trademarks by serial number, registration number and reference number.
 
